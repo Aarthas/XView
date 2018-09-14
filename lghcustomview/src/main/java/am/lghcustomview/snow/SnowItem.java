@@ -25,7 +25,7 @@ public class SnowItem extends BaseItem {
 
     private int dx;
     private int posX,posY;
-    private int distance = 0; /** 方向 1 左边飘，2 垂直，3 右边 */
+    private int distance = 2; /** 方向 1 左边飘，2 垂直，3 右边 */
     private int finalDx = 0;
 
     public SnowItem(int width, int height, Resources resources) {
@@ -36,7 +36,7 @@ public class SnowItem extends BaseItem {
     private void init(){
         paint = new Paint(Paint.ANTI_ALIAS_FLAG); /** 抗锯齿  */
         random = new Random();
-        snowBitmap = BitmapFactory.decodeResource(resources, R.drawable.snow);
+        snowBitmap = BitmapFactory.decodeResource(resources, R.drawable.rain2x);
         loopInit();
     }
 
@@ -49,8 +49,8 @@ public class SnowItem extends BaseItem {
     private void loopInit(){
         posX = random.nextInt(width);
         posY = random.nextInt(15); /** 限制从头部不远处下 */
-        opt = 0.5f + random.nextFloat();
-        dx  = 5    + random.nextInt(10);
+        opt = 0.6f + random.nextFloat();
+        dx  = 40;
 
         distance = random.nextInt(10);
         /** 改变 x 轨迹为不定情况 */
@@ -60,7 +60,7 @@ public class SnowItem extends BaseItem {
             case 1:
             case 2:
             case 3:
-                finalDx += -random.nextInt(dxRand);
+//                finalDx += -random.nextInt(dxRand);
                 break;
             case 4:
             case 5:
@@ -70,7 +70,7 @@ public class SnowItem extends BaseItem {
             case 7:
             case 8:
             case 9:
-                finalDx += random.nextInt(dxRand);
+//                finalDx += random.nextInt(dxRand);
                 break;
         }
     }

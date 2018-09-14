@@ -78,12 +78,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <am.lghcustomview.snow.SnowView
+    <am.lghcustomview.snow.MyRainView
         android:id="@+id/snow"
         android:visibility="gone"
         android:background="#73aaf2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="360dp" />
 
     <am.lghcustomview.money.MoneyView
         android:id="@+id/money"

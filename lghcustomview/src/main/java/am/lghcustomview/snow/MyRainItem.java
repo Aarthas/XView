@@ -1,4 +1,4 @@
-package am.lghcustomview.money;
+package am.lghcustomview.snow;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -16,20 +16,19 @@ import am.lghcustomview.base.BaseItem;
  * Created by LinGuanHong on 2017/1/15.
  */
 
-public class MoneyItem extends BaseItem {
+public class MyRainItem extends BaseItem {
 
     private Bitmap snowBitmap;
-    private Paint paint;
+    private Paint  paint;
     private Random random;
     private float opt;
 
     private int dx;
     private int posX,posY;
-    private int distance = 0;
-    /** 方向 1 左边飘，2 垂直，3 右边 */
-//    private int finalDx = 2;
+    private int distance = 2; /** 方向 1 左边飘，2 垂直，3 右边 */
+    private int finalDx = 0;
 
-    public MoneyItem(int width, int height, Resources resources) {
+    public MyRainItem(int width, int height, Resources resources) {
         super(width, height,resources);
         init();
     }
@@ -50,13 +49,13 @@ public class MoneyItem extends BaseItem {
     private void loopInit(){
         posX = random.nextInt(width);
         posY = random.nextInt(15); /** 限制从头部不远处下 */
-        opt = 0.5f + random.nextFloat();
-//        dx  = 5    + random.nextInt(10);
-        dx  = 5;
+        opt = 0.6f + random.nextFloat();
+        dx  = 15;
+
         distance = random.nextInt(10);
         /** 改变 x 轨迹为不定情况 */
         /** 不放置到 move 否则一直在改变 */
-        int dxRand = 2;
+        int dxRand = 4;
         switch(distance){
             case 1:
             case 2:
@@ -78,10 +77,11 @@ public class MoneyItem extends BaseItem {
 
     @Override
     public void move() {
-        posX += 0;
+        posX += finalDx;
         posY += dx * opt;  /** 注意相乘变成 0 的情况 */
         if(posY > height){
             loopInit();
         }
+        Log.d("syb","move  "+this);
     }
 }

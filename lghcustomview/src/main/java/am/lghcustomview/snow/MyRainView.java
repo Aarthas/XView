@@ -10,14 +10,14 @@ import am.lghcustomview.base.ShowView;
  * Created by LinGuanHong on 2017/1/15.
  */
 
-public class SnowView extends ShowView<SnowItem> {
+public class MyRainView extends ShowView<SnowItem> {
 
 
-    public SnowView(Context context) {
+    public MyRainView(Context context) {
         super(context);
     }
 
-    public SnowView(Context context, AttributeSet attrs) {
+    public MyRainView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -33,6 +33,6 @@ public class SnowView extends ShowView<SnowItem> {
 
     @Override
     public int getCount() {
-        return 80;
+        return 15;
     }
 }

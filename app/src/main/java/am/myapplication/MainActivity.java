@@ -20,6 +20,7 @@ import java.util.Random;
 import am.lghcustomview.ball.BallView;
 import am.lghcustomview.money.MoneyView;
 import am.lghcustomview.rain.RainView;
+import am.lghcustomview.snow.MyRainView;
 import am.lghcustomview.snow.SnowView;
 
 import static am.myapplication.R.id.p;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     ParticleView particleView;
     RainView rainView;
-    SnowView snowView;
+    MyRainView snowView;
     MoneyView moneyView;
     BallView ballView;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         char[] arr = s.toCharArray();
         Paint p = new Paint();
         p.setTextSize(280);
+
         // p.setTextAlign(Paint.Align.CENTER);
         // p.setTypeface(Typeface.create("System", Typeface.BOLD));
         p.setFakeBoldText(true);
@@ -70,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         particleView = (ParticleView) findViewById(p);
         particleView.setTag(true);
         changeText("L O V E");
-
         findViewById(zoom).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
         pContainer = (LinearLayout)findViewById(R.id.pContainer);
         rainView   = (RainView)  findViewById(R.id.rain ); // new RainView (this);
-        snowView   = (SnowView)  findViewById(R.id.snow ); // new SnowView (this);
+        snowView   = (MyRainView)  findViewById(R.id.snow ); // new SnowView (this);
         moneyView  = (MoneyView) findViewById(R.id.money); // new MoneyView(this);
         ballView   = (BallView)  findViewById(R.id.ball );
 
